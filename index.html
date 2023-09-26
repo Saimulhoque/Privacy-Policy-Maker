@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy Generator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Privacy Policy Generator</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Generate Privacy Policy</h1>
+        <form id="privacyPolicyForm">
+            <div class="form-group">
+                <label for="websiteName">Website Name:</label>
+                <input type="text" class="form-control" id="websiteName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Contact Email:</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="websiteURL">Website URL:</label>
+                <input type="url" class="form-control" id="websiteURL" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Website Description:</label>
+                <textarea class="form-control" id="description" rows="4" required></textarea>
+            </div>
+        
+            <!-- Dropdown Selections -->
+            <div class="form-group">
+                <label for="dataCollection">Data Collection:</label>
+                <select class="form-control" id="dataCollection" required>
+                    <option value="Option 1">Option 1</option>
+                    <option value="Option 2">Option 2</option>
+                    <option value="Option 3">Option 3</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dataSources">Data Sources:</label>
+                <select class="form-control" id="dataSources" required>
+                    <option value="Option A">Option A</option>
+                    <option value="Option B">Option B</option>
+                    <option value="Option C">Option C</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="purposeOfDataCollection">Purpose of Data Collection:</label>
+                <select class="form-control" id="purposeOfDataCollection" required>
+                    <option value="Purpose X">Purpose X</option>
+                    <option value="Purpose Y">Purpose Y</option>
+                    <option value="Purpose Z">Purpose Z</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <!-- Add more dropdown selections for other fields -->
+        
+            <button type="submit" class="btn btn-primary" id="generatePolicyBtn">Generate Privacy Policy</button>
+        </form>
+        
+    </div>
+
+    <!-- Preview Privacy Policy Section -->
+    <div class="container mt-4">
+        <h2>Preview Privacy Policy</h2>
+        <div id="previewPrivacyPolicy"></div>
+    </div>
+
+    <script>
+        document.getElementById("privacyPolicyForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Get user inputs (text fields)
+            const websiteName = document.getElementById("websiteName").value;
+            const email = document.getElementById("email").value;
+            const websiteURL = document.getElementById("websiteURL").value;
+            const description = document.getElementById("description").value;
+
+            // Get selected dropdown values
+            const dataCollection = document.getElementById("dataCollection").value;
+            const dataSources = document.getElementById("dataSources").value;
+            const purposeOfDataCollection = document.getElementById("purposeOfDataCollection").value;
+
+            // Generate the Privacy Policy
+            const privacyPolicy = `
+                <h2>Privacy Policy for ${websiteName}</h2>
+                <p>If you require any more information or have any questions about our privacy policy, please feel free to contact us at ${email}.</p>
+
+                <h3>Information We Collect</h3>
+                <p>${dataCollection}</p>
+
+                <h3>Data Sources</h3>
+                <p>${dataSources}</p>
+
+                <h3>Purpose of Data Collection</h3>
+                <p>${purposeOfDataCollection}</p>
+            `;
+
+            // Store the generated policy in localStorage for preview on the next page
+            localStorage.setItem("privacyPolicy", privacyPolicy);
+
+            // Display the generated policy in the previewPrivacyPolicy div
+            document.getElementById("previewPrivacyPolicy").innerHTML = privacyPolicy;
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

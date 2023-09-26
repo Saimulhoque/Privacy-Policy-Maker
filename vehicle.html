@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Animation</title>
+    <style>
+        /* Add some basic styling for the footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Content goes here -->
+
+    <footer>
+        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100">
+            <!-- Car body -->
+            <rect x="20" y="30" width="160" height="40" rx="10" ry="10" fill="#f00" />
+            <rect x="40" y="40" width="120" height="20" fill="#f00" />
+        
+            <!-- Car windows -->
+            <rect x="60" y="45" width="30" height="15" fill="#00f" />
+            <rect x="110" y="45" width="30" height="15" fill="#00f" />
+        
+            <!-- Car wheels -->
+            <circle id="leftWheel" cx="60" cy="75" r="15" fill="#000" />
+            <circle id="rightWheel" cx="140" cy="75" r="15" fill="#000" />
+        
+            <!-- Animation for left wheel -->
+            <animateTransform xlink:href="#leftWheel" attributeName="transform" attributeType="XML" type="rotate" from="0 60 75" to="360 60 75" dur="1s" repeatCount="indefinite" />
+        
+            <!-- Animation for right wheel -->
+            <animateTransform xlink:href="#rightWheel" attributeName="transform" attributeType="XML" type="rotate" from="0 140 75" to="360 140 75" dur="1s" repeatCount="indefinite" begin="0.5s" />
+        </svg>
+        
+        
+        
+        
+    </footer>
+</body>
+</html>

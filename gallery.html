@@ -1,0 +1,58 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    
+        <style>
+            .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .photo-gallery img {
+            max-width: 100px;
+            margin: 5px;
+            border-radius: 10px;
+        }
+        </style>
+
+
+    </head>
+    <body>
+        <div class="photo-gallery">
+            <a data-fancybox="gallery" href="person.jpg"><img src="person.jpg" alt="Gallery Photo 1"></a>
+            <a data-fancybox="gallery" href="person.jpg"><img src="person.jpg" alt="Gallery Photo 2"></a>
+            <a data-fancybox="gallery" href="person.jpg"><img src="person.jpg" alt="Gallery Photo 3"></a>
+            <a data-fancybox="gallery" href="person.jpg"><img src="person.jpg" alt="Gallery Photo 2"></a>
+            <a data-fancybox="gallery" href="person.jpg"><img src="person.jpg" alt="Gallery Photo 3"></a>
+        </div>
+
+
+
+        <script>
+            $(document).ready(function() {
+                $("[data-fancybox]").fancybox({
+                    buttons: [
+                        "zoom",
+                        "slideShow",
+                        "fullScreen",
+                        "download",
+                        "thumbs",
+                        "share",
+                        "close"
+                    ],
+                    loop: false
+                });
+            });
+        </script>
+
+    </body>
+</html>
